@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día Mi Amor 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 2.5em;
+            animation: latido 1.5s infinite;
+        }
+
+        @keyframes latido {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            background: #ff4b5c;
+            color: white;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .carta {
+            display: none;
+            width: 85%;
+            max-width: 500px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .corazon {
+            position: fixed;
+            animation: flotar 5s linear infinite;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(100vh); opacity: 1;}
+            100% { transform: translateY(-10vh); opacity: 0;}
+        }
+
+        .contador {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        img {
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>💖 Feliz Día Al Amor De Mi Vida 💖</h1>
+
+<button id="btnCarta">Abrir mi carta 💌</button>
+<button id="btnAmor">Llenar de amor 💕</button>
+
+<div class="carta" id="carta">
+    <h2>Para el amor de mi vida</h2>
+    <p>
+        Feliz día a la niña de mis ojos.
+        Hoy como cualquier otro día te vuelvo a dar las
+        gracias por todo lo que haces por mi, por ser como
+        eres conmigo, por aguantar mis malos momentos, por
+        no irte nunca de mi lado a pesar de todo y sobre
+        todo por quererme de esa forma tan bonita y sincera
+        que lo haces. Jamás imaginaría tener una persona
+        como tú a mi lado, ahora que la tengo lo valoro y
+        aprecio como nada, no desaprovecharé la oportunidad
+        que tengo y haré siempre lo que esté en mi mano para
+        que seas la niña más feliz del mundo, porque no te
+        mereces menos. Eres una persona increíble con un
+        corazón precioso, una persona llena de valores, valores
+        que te hacen ser quien eres, eres trabajadora,
+        luchadora y resistente, y yo mejor que nadie sé que
+        llegarás donde quieras en la vida, nunca te pongas
+        límites, porque no los tienes.
+        Has sido tú la persona que me ha enseñado a querer,
+        a querer de verdad y a querer bien, siempre supe que
+        serías una persona especial en mi vida desde el día
+        que te conocí, pero jamás me imaginaría que te
+        convertirías en lo que eres para mí hoy en día. Solo
+        espero que esto sea el principio de algo increíble,
+        y algún día miremos atrás y nos sintamos orgullosos
+        de lo que hemos sido y de lo que seremos en un futuro.
+        No hay cosa que desee más que cumplir todos mis
+        objetivos y sueños a tu lado, y que tu cumplas los tuyos
+        al mío. Por último, quiero recordarte desde donde venimos,
+        donde empezamos, y lo que eramos cada uno un día antes
+        de conocernos, siempre he intentado ayudarte y hacerte
+        crecer como persona, sacar lo mejor de ti, pero tú, tú
+        me has cambiado la vida por completo y desde aquel día
+        te llevo y te llevaré siempre conmigo. Pase lo que pase.<br>
+        ♾️ Te amo desde el infinito hasta el infinito. ♾️
+    </p>
+</div>
+
+<div class="contador" id="contador"></div>
+
+<!-- 🎵 CAMBIAR AQUÍ EL NOMBRE DEL ARCHIVO MP3 -->
+<audio id="musica" src="cancion.mp3" preload="auto"></audio>
+
+<!-- 📸 CAMBIAR AQUÍ EL NOMBRE DE LA FOTO -->
+<img src="foto.jpg" alt="imagen">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const btnCarta = document.getElementById("btnCarta");
+        const btnAmor = document.getElementById("btnAmor");
+        const carta = document.getElementById("carta");
+        const musica = document.getElementById("musica");
+
+        // 💌 ABRIR CARTA + SONAR MÚSICA
+        btnCarta.addEventListener("click", function() {
+            carta.style.display = "block";
+            musica.play();
+        });
+
+        // 💕 CORAZONES
+        btnAmor.addEventListener("click", function() {
+            for (let i = 0; i < 25; i++) {
+                let corazon = document.createElement("div");
+                corazon.classList.add("corazon");
+                corazon.innerHTML = "❤️";
+                corazon.style.left = Math.random() * 100 + "vw";
+                corazon.style.fontSize = (Math.random() * 20 + 20) + "px";
+                corazon.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(corazon);
+
+                setTimeout(() => {
+                    corazon.remove();
+                }, 5000);
+            }
+        });
+
+        // 📅 CAMBIAR AQUÍ LA FECHA EN QUE EMPEZARON
+        let fechaInicio = new Date("2025-07-28");
+
+        function actualizarContador() {
+            let ahora = new Date();
+            let diferencia = ahora - fechaInicio;
+            let dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+            document.getElementById("contador").innerHTML =
+                dias + " días a tu lado 💕";
+        }
+
+        actualizarContador();
+    });
+</script>
+
+</body>
+</html>
+
